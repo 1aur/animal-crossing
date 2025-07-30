@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import CreateForm from "./components/CreateForm"
+import EditForm from "./components/EditForm"
+import SummaryPage from "./components/SummaryPage"
+import DetailPage from "./components/DetailPage"
+import HomePage from "./components/HomePage"
+import './styles/theme.css'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="layout-container">
+        <aside className="sidebar">
+          <h1>🌳 Villager App</h1>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/create">Create a Villager</Link>
+            <Link to="/gallery">Villager Gallery</Link>
+          </nav>
+          <img src="/leaf.svg" alt="leaf icon" className="leaf-icon" />
+        </aside>
+        <main className="main-content">
+          <Routes>
+            <Route path="/gallery" element={<SummaryPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/create" element={<CreateForm />} />
+            <Route path="/edit/:id" element={<EditForm />} />
+            <Route path="/villager/:id" element={<DetailPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  )
 }
-
-export default App;

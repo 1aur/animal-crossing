@@ -1,0 +1,29 @@
+.home-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .home-logo {
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--ac-brown);
+  }
+  
+  .character-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .character {
+    width: 120px;
+    height: auto;
+  }
+  
